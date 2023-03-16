@@ -5,8 +5,7 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
 st.title("통계자료로 보는 한국의 어두운 전망")
-st.title("(2011년 - 2022년)")
-    )
+st.title("     (2011년 - 2022년)")
 
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
@@ -18,7 +17,7 @@ with st.sidebar:
     option = st.radio(
         "보고싶은 차트를 선택하세요",
         chart)
-        
+
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
     area_number = len(students_df['지역'].unique()[1:])
