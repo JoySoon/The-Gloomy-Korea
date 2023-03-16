@@ -109,8 +109,8 @@ def display_closed_school_data(year):
     fig.layout.update({'title': f'                                                                                  {year}년 학교 폐교율'})
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
-    fig.layout.update({'height':800})
-    fig.update_layout(yaxis=dict(tickmode='bar', dtick=2))
+    fig.update_layout(width=800, height=600)
+    fig.update_layout(yaxis=dict(tickmode='linear', dtick=2))
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 def draw_pie_year(year):
