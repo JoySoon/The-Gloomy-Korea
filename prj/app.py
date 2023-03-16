@@ -64,7 +64,7 @@ def display_student_data(year):
     fig.layout.yaxis2.update({'title': '학생수'})
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
-    fig.layout.update({'title': f'{year}년도의 지역당 전체 학생 수'})
+    fig.layout.update({'title': f'        {year}년도의 지역당 전체 학생 수'})
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'width':800, 'height':800, 'yaxis':dict(dtick=100000)})
