@@ -32,7 +32,6 @@ df_year = df_month.sort_values(['연도','월'], ascending=True).copy()
 reset_df = df_year.reset_index()
 reset_df = reset_df[['연도','값']]
 m_sum_df = reset_df.groupby(by=['연도']).sum()
-m_sum_df
 
 b_p = marriage_df['항목'] == '출생(명)'
 df = marriage_df[b_p][['월','값']]
@@ -42,13 +41,13 @@ df_year = df_month.sort_values(['연도','월'], ascending=True).copy()
 reset_df = df_year.reset_index()
 b_sum_df = reset_df[['연도','값']]
 b_sum_df = b_sum_df.groupby(by=['연도']).sum()
-b_sum_df
+
 
 merged_df = pd.merge(m_sum_df, b_sum_df, on='연도', how='outer')
 merged_df = merged_df.rename(columns={'값_x': '결혼(수)', '값_y': '출생(수)'})
-merged_df
 
-st.line_chart(merged_df)
+
+st.line_chart(merged_df,x='년도',y='건수')
 
 
 # df_by_year = lambda year: reset_df.loc[reset_df['연도'] == year].copy()
