@@ -14,6 +14,7 @@ chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 st.sidebar.markdown("---")
 st.sidebar.markdown("---")
 year = st.sidebar.selectbox(
+    "",
     years)
 st.sidebar.markdown("---")
 with st.sidebar:
