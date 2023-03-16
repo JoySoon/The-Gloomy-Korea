@@ -4,12 +4,13 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
+# 텍스트 모음
+title = "한국의미래"
 text = "(2011년 - 2022년)"
 year_text = "연도 선택"
 chart_text = "차트 선택"
 
-st.title("한국의 미래")
-st.sidebar.markdown("![Header](https://capsule-render.vercel.app/api?type=slice&color=auto&height=200&section=header)")
+st.markdown(f"<div style='font-weight:bold; font-size:30px'>{title}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>{text}</div>", unsafe_allow_html=True)
 st.markdown("---")
 years = np.arange(2011,2023)
