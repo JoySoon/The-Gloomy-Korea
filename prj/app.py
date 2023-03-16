@@ -34,6 +34,8 @@ def display_student_data(year):
     set_index_area.set_index('지역', inplace=True)
     data_year = set_index_area[set_index_area['연도'] == year]
     fig = ff.create_table(data_year, height_constant=60)
+
+
     # Add graph data
     team = data_year.index
     each_area_count = data_year['학생(명)']
@@ -80,7 +82,7 @@ def display_closed_school_data(year):
 
 
     # 차트 만들기
-    fig = ff.create_table(data_2022, height_constant=60)
+    fig = ff.create_table(data_year, height_constant=60)
     # Add graph data
     team = data_year.index
     each_area_count = data_year['당년(개)']
