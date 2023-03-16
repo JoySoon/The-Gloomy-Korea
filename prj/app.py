@@ -11,7 +11,7 @@ year = st.selectbox(
     '연도를 선택하세요',
     years)
 st.write('You selected:', year)
-chart = ['학생','폐교']
+chart = ['학생','폐교','폐교(파이)']
 option = st.selectbox(
     '차트를 선택하세요',
     chart)
@@ -99,7 +99,33 @@ def display_closed_school_data(year):
     fig.layout.update({'height':800})
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
+def draw_pie_year(year):
+    close_school_df = pd.read_csv("testing/학교.csv", index_col=0)
+    sorted_school_df = close_school_df.rename(columns={'당년(개)': '값'})
+    sorted_school_df = sorted_school_df[sorted_school_df['지역'] != '전국']
+
+    sorted_school_df = sorted_school_df[['지역','학교상태','값','누적 총(개)']]
+    sorted_school_df.rename_axis("연도", axis='index', inplace=True) # 인덱스의 이름을 바꾸는것
+    sorted_school_df
+
+    set_index_area = sorted_school_df.reset_index()
+    data_year = set_index_area[set_index_area['연도'] == year]
+
+    labels =  list(data_year['지역'].unique())
+    values = data_year['값']
+
+    # pull is given as a fraction of the pie radius
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+
+    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
+    with tab1:
+        st.plotly_chart(fig, theme="streamlit")
+    with tab2:
+        st.plotly_chart(fig, theme=None)
+
 if option == "학생":
     display_student_data(year)
+elif option == "폐교(파이)":
+    draw_pie_year(year)
 else:
     display_closed_school_data(year)
