@@ -106,7 +106,7 @@ def display_closed_school_data(year):
     fig.layout.yaxis2.update({'title': '폐교 학교 수'})
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
-    fig.layout.update({'title': f'{year}년도의 학교 폐교율'})
+    fig.layout.update({'title': f'                                                                  {year}년 학교 폐교율'})
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'height':800})
@@ -178,7 +178,7 @@ def statistics_year(year):
                             line = dict(color='firebrick', width=4, dash='dot')))
 
     # Edit the layout
-    fig.update_layout(title=f'{year}년도 월별 출생 및 결혼 건수 통계',
+    fig.update_layout(title=f'                                             {year}년 월별 출생 및 결혼 건수 통계',
                     xaxis_title='월',
                     yaxis_title='건수')
     fig.update_layout(xaxis=dict(tickmode='linear', dtick=1))
