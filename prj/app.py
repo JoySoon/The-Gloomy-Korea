@@ -9,7 +9,7 @@ text = "This text will be centered"
 
 # 텍스트를 가운데 정렬하여 출력합니다.
 st.title("통계자료로 보는 한국의 어두운 전망")
-st.head(f"<div style='text-align:center'>{head_text}</div>", unsafe_allow_html=True)
+st.header(f"<div style='text-align:center'>{head_text}</div>", unsafe_allow_html=True)
 # st.head("     (2011년 - 2022년)")
 st.sidebar.title("")
 years = np.arange(2011,2023)
