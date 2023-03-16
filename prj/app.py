@@ -14,7 +14,7 @@ st.title("(2010년 - 2022년)")
   
 
 # 데이터 커스터마이징징
-close_school_df = pd.read_csv("prj/app.py", index_col=0)
+close_school_df = pd.read_csv("prj/app.py")
 st.write(close_school_df)
 # area_number = len(close_school_df['지역'].unique()[1:])
 # not_all_area = close_school_df[close_school_df['지역'] != '전국']
