@@ -68,7 +68,7 @@ def display_student_data(year):
     fig.layout.update({'title': f'{year}년도의 지역당 전체 학생 수'})
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
-    fig.layout.update(width=800, height=800, yaxis=dict(dtick=100000))
+    fig.layout.update({'width':800, 'height':800, 'yaxis':dict(dtick=100000)})
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 def display_closed_school_data(year):
