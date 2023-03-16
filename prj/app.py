@@ -8,18 +8,23 @@ head_text = "(2011년 - 2022년)"
 
 # 텍스트를 가운데 정렬하여 출력합니다.
 st.title("통계자료로 보는 한국의 어두운 전망")
-st.header("     (2011년 - 2022년)")
+# st.header("     (2011년 - 2022년)")
+st.markdown("<center>(2011년 - 2022년)</center>")
 st.markdown("---")
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("---")
 year = st.sidebar.selectbox(
     '연도를 선택하세요',
     years)
 st.sidebar.markdown("---")
 with st.sidebar:
     option = st.radio(
-        "보고싶은 차트를 선택하세요",
+        "차트를 선택하세요",
         chart)
+st.markdown("---")
 
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
