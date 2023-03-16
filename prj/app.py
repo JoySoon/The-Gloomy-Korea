@@ -17,17 +17,16 @@ years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"<div style='text-align:center; font-size:18px'>{year_text}</div>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px'>{year_text}</div>", unsafe_allow_html=True)
 year = st.sidebar.selectbox(
     "",
     years)
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"<div style='text-align:center; font-size:18px;'>{chart_text}</div>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px;'>{chart_text}</div>", unsafe_allow_html=True)
 with st.sidebar:
     option = st.radio(
         "",
         chart)
-st.markdown("---")
 
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
