@@ -13,8 +13,10 @@ chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("---")
+year_text='연도를 선택하세요'
 year = st.sidebar.selectbox(
-    '연도를 선택하세요',
+    f"<div style='text-align:center'>{year_text}</div>", 
+    unsafe_allow_html=True,
     years)
 st.sidebar.markdown("---")
 with st.sidebar:
