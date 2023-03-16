@@ -5,13 +5,13 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
 st.title("통계자료로 보는 한국의 어두운 전망")
-st.title("(2010년 - 2022년)")
+st.title("(2011년 - 2022년)")
 years = np.arange(2011,2023)
 year = st.selectbox(
     '연도를 선택하세요',
     years)
 st.write('You selected:', year)
-chart = ['학생','폐교','폐교(파이)']
+chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 option = st.selectbox(
     '차트를 선택하세요',
     chart)
@@ -122,16 +122,63 @@ def draw_pie_year(year):
     fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=pull, textinfo='label+percent',
                                  insidetextorientation='radial')])
     fig.update_layout(width=800, height=600)
-    
+
     tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
     with tab1:
         st.plotly_chart(fig, theme="streamlit")
     with tab2:
         st.plotly_chart(fig, theme=None)
 
+def statistics_year(year):
+    marriage_df = pd.read_csv("prj/출생,결혼.csv", index_col=0)
+    marriage_df.rename_axis("연도", axis='index', inplace=True)
+    marriage_df = marriage_df.reset_index()
+    df_month = marriage_df.copy()
+    df_month['월'] = df_month['월'].str.replace('월', '').astype(int)
+    df_month = df_month.sort_values('월',ascending=True)
+    df_month = df_month.set_index('월')
+
+
+    b_df = df_month[df_month['항목'] == '출생(명)']
+    m_df = df_month[df_month['항목'] == '결혼(건)']
+
+    b_df = b_df[['연도','항목','값']]
+    m_df = m_df[['연도','항목','값']]
+
+
+    a = m_df[m_df['연도'] == year]
+    a = a.reset_index()
+    b = b_df[b_df['연도'] == year]
+    b = b.reset_index()
+
+    month = a['월']
+    listed_month = [ str(i) + '월' for i in month]
+    marriage = a['값']
+    birth = b['값']
+
+    fig = go.Figure()
+    # Create and style traces
+
+    fig.add_trace(go.Scatter(x=listed_month, y=birth, name = '출생자수',
+                            line=dict(color='royalblue', width=4)))
+    fig.add_trace(go.Scatter(x=listed_month, y=marriage, name='결혼건수',
+                            line = dict(color='firebrick', width=4, dash='dot')))
+
+    # Edit the layout
+    fig.update_layout(title=f'{year}년도 월별 출생 및 결혼 건수 통계',
+                    xaxis_title='월',
+                    yaxis_title='건수')
+    fig.update_layout(xaxis=dict(tickmode='linear', dtick=1))
+    fig.update_layout(width=800, height=600)
+    st.plotly_chart(fig)
+
+
+
 if option == "학생":
     display_student_data(year)
 elif option == "폐교(파이)":
     draw_pie_year(year)
+elif option == "출생 및 결혼":
+    statistics_year(year)
 else:
     display_closed_school_data(year)
