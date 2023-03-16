@@ -78,7 +78,7 @@ def display_closed_school_data(year):
     sorted_area['전체평균'] = round(all_area['당년(개)'] / area_number).astype(int)
     set_index_area = sorted_area.reset_index()
     set_index_area.set_index('지역', inplace=True)
-    data_year = set_index_area[set_index_area['연도'] == year]
+    data_year = set_index_area[set_index_area['날짜'] == year]
 
 
     # 차트 만들기
