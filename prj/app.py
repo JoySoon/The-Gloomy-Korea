@@ -195,5 +195,4 @@ elif option == "출생 및 결혼":
 else:
     display_closed_school_data(year)
 
-
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
+st.markdown("![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)")
