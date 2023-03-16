@@ -9,7 +9,7 @@ head_text = "(2011년 - 2022년)"
 # 텍스트를 가운데 정렬하여 출력합니다.
 st.title("통계자료로 보는 한국의 어두운 전망")
 # st.header("     (2011년 - 2022년)")
-st.markdown("<center>(2011년 - 2022년)</center>")
+st.markdown("<center> (2011년 - 2022년) </center>")
 st.markdown("---")
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
