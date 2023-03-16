@@ -6,6 +6,12 @@ import plotly.figure_factory as ff
 
 st.title("통계자료로 보는 한국의 어두운 전망")
 st.title("(2011년 - 2022년)")
+
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
+
 years = np.arange(2011,2023)
 year = st.selectbox(
     '연도를 선택하세요',
