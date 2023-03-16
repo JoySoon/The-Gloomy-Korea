@@ -11,12 +11,12 @@ years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 year = st.sidebar.selectbox(
     '연도를 선택하세요',
-    years, position='right')
+    years)
 
 with st.sidebar:
     option = st.radio(
         "보고싶은 차트를 선택하세요",
-        chart)
+        chart,  position='right')
 
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
