@@ -4,19 +4,43 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
+<<<<<<< main
+# 텍스트 모음
+title = "한국의 미래"
+text = "(2011년 - 2022년)"
+year_text = "연도 선택"
+chart_text = "차트 선택"
+
+st.markdown(f"<div style='font-weight:bold; font-size:40px; text-align:center'>{title}</div>", unsafe_allow_html=True)
+
+st.markdown(f"<div style='text-align:center; font-size:24px'>{text}</div>", unsafe_allow_html=True)
+st.markdown("---")
+=======
 st.title("통계자료로 보는 한국의 어두운 전망")
 st.title("(2011년 - 2022년)")
 
+>>>>>>> main
 years = np.arange(2011,2023)
-year = st.selectbox(
-    '연도를 선택하세요',
-    years)
-st.write('You selected:', year)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
+<<<<<<< main
+
+st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px'>{year_text}</div>", unsafe_allow_html=True)
+st.sidebar.markdown("---")
+year = st.sidebar.selectbox(
+    "",
+    years)
+st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px;'>{chart_text}</div>", unsafe_allow_html=True)
+st.sidebar.markdown("---")
+with st.sidebar:
+    option = st.radio(
+        "",
+        chart)
+=======
 option = st.selectbox(
     '차트를 선택하세요',
     chart)
 st.write('You selected:', option)
+>>>>>>> main
 
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
@@ -55,6 +79,15 @@ def display_student_data(year):
     # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
     fig.layout.yaxis2.update({'anchor': 'x2'})
     fig.layout.xaxis2.update({'anchor': 'y2'})
+<<<<<<< main
+    fig.layout.yaxis2.update({'title': '학생수'})
+    # Update the margins to add a title and see graph x-labels.
+    fig.layout.margin.update({'t':75, 'l':50})
+    fig.layout.update({'title': f'                                                                        {year}년 지역당 전체 학생 수'})
+    # Update the height because adding a graph vertically will interact with
+    # the plot height calculated for the table
+    fig.layout.update({'width':800, 'height':800, 'yaxis':dict(dtick=100000)})
+=======
     fig.layout.yaxis2.update({'title': 'Goals'})
 
     # Update the margins to add a title and see graph x-labels.
@@ -65,6 +98,7 @@ def display_student_data(year):
     # the plot height calculated for the table
     fig.layout.update({'height':800})
 
+>>>>>>> main
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 
@@ -88,11 +122,15 @@ def display_closed_school_data(year):
     average_count = data_year['전체평균']
     trace1 = go.Bar(x=team, y=each_area_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#0099FF'),
-                    name='Each area')
+                    name='지역별')
     trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#404040'),
+<<<<<<< main
+                    name='평균')
+=======
                     name='Total Average')
 
+>>>>>>> main
     # Add trace data to figure
     fig.add_traces([trace1, trace2])
 
@@ -111,12 +149,20 @@ def display_closed_school_data(year):
 
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
+<<<<<<< main
+    fig.layout.update({'title': f'                                                                                  {year}년 학교 폐교율'})
+    # Update the height because adding a graph vertically will interact with
+    # the plot height calculated for the table
+    fig.update_layout(width=800, height=600)
+    fig.update_layout(yaxis=dict(tickmode='linear', dtick=2))
+=======
     fig.layout.update({'title': f'{year}년도의 학교 폐교율'})
 
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'height':800})
 
+>>>>>>> main
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
     
@@ -144,7 +190,7 @@ def draw_pie_year(year):
                                  insidetextorientation='radial')])
     fig.update_layout(width=800, height=600)
 
-    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
+    tab1, tab2 = st.tabs(["일반 색상", "다른 색상"])
     with tab1:
         st.plotly_chart(fig, theme="streamlit")
     with tab2:
@@ -186,10 +232,11 @@ def statistics_year(year):
                             line = dict(color='firebrick', width=4, dash='dot')))
 
     # Edit the layout
-    fig.update_layout(title=f'{year}년도 월별 출생 및 결혼 건수 통계',
+    fig.update_layout(title=f'                                                                               {year}년 월별 출생 및 결혼 건수 통계',
                     xaxis_title='월',
                     yaxis_title='건수')
     fig.update_layout(xaxis=dict(tickmode='linear', dtick=1))
+    fig.update_layout(yaxis=dict(tickmode='linear', dtick=2000))
     fig.update_layout(width=800, height=600)
     st.plotly_chart(fig)
 
