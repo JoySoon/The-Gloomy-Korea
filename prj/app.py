@@ -4,5 +4,5 @@ import io
 import matplotlib.pyplot as plt
 
 
-st.write()
+st.write("hello")
 
