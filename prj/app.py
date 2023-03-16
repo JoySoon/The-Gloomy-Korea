@@ -109,12 +109,16 @@ def draw_pie_year(year):
 
     set_index_area = sorted_school_df.reset_index()
     data_year = set_index_area[set_index_area['연도'] == year]
+    data_year.sort_values('값',ascending=False)
 
     labels =  list(data_year['지역'].unique())
     values = data_year['값']
+    pull = np.zeros(len(data_year['값'].unique()))
+    pull[0] = 0.3
+    pull[1] = 0.1
 
     # pull is given as a fraction of the pie radius
-    fig = go.Figure(data=[go.Pie(labels=labels, values=values, textinfo='label+percent',
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=pull, textinfo='label+percent',
                                  insidetextorientation='radial')])
 
     tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
