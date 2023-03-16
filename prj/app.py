@@ -43,26 +43,26 @@ trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
 # Add trace data to figure
 fig.add_traces([trace1, trace2])
 
-# initialize xaxis2 and yaxis2
-# fig['layout']['xaxis2'] = {}
-# fig['layout']['yaxis2'] = {}
+initialize xaxis2 and yaxis2
+fig['layout']['xaxis2'] = {}
+fig['layout']['yaxis2'] = {}
 
-# # Edit layout for subplots
-# fig.layout.yaxis.update({'domain': [0, .45]})
-# fig.layout.yaxis2.update({'domain': [.6, 1]})
+# Edit layout for subplots
+fig.layout.yaxis.update({'domain': [0, .45]})
+fig.layout.yaxis2.update({'domain': [.6, 1]})
 
-# # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
-# fig.layout.yaxis2.update({'anchor': 'x2'})
-# fig.layout.xaxis2.update({'anchor': 'y2'})
-# fig.layout.yaxis2.update({'title': 'Goals'})
+# The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
+fig.layout.yaxis2.update({'anchor': 'x2'})
+fig.layout.xaxis2.update({'anchor': 'y2'})
+fig.layout.yaxis2.update({'title': 'Goals'})
 
-# # Update the margins to add a title and see graph x-labels.
-# fig.layout.margin.update({'t':75, 'l':50})
-# fig.layout.update({'title': '2022 학교 폐교율'})
+# Update the margins to add a title and see graph x-labels.
+fig.layout.margin.update({'t':75, 'l':50})
+fig.layout.update({'title': '2022 학교 폐교율'})
 
-# # Update the height because adding a graph vertically will interact with
-# # the plot height calculated for the table
-# fig.layout.update({'height':800})
+# Update the height because adding a graph vertically will interact with
+# the plot height calculated for the table
+fig.layout.update({'height':800})
 
 
 # # Group data together
