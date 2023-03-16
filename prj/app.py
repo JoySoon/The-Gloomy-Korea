@@ -106,7 +106,6 @@ def draw_pie_year(year):
 
     sorted_school_df = sorted_school_df[['지역','학교상태','값','누적 총(개)']]
     sorted_school_df.rename_axis("연도", axis='index', inplace=True) # 인덱스의 이름을 바꾸는것
-    sorted_school_df
 
     set_index_area = sorted_school_df.reset_index()
     data_year = set_index_area[set_index_area['연도'] == year]
