@@ -47,7 +47,7 @@ merged_df = pd.merge(m_sum_df, b_sum_df, on='연도', how='outer')
 merged_df = merged_df.rename(columns={'값_x': '결혼(수)', '값_y': '출생(수)'})
 
 
-st.line_chart(merged_df,x='년도',y='건수')
+st.line_chart(merged_df)
 
 
 # df_by_year = lambda year: reset_df.loc[reset_df['연도'] == year].copy()
