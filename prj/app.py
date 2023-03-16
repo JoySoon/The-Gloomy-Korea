@@ -4,12 +4,10 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
-head_text = "(2011년 - 2022년)"
 
-# 텍스트를 가운데 정렬하여 출력합니다.
-st.title("통계자료로 보는 한국의 어두운 전망")
-# st.header("     (2011년 - 2022년)")
-st.markdown("<center> (2011년 - 2022년) </center>")
+st.title("통계자료로 한국의 미래를 바라보다")
+st.header("<div style='text-align:center'>(2011년 - 2022년)</div>", unsafe_allow_html=True)
+
 st.markdown("---")
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
