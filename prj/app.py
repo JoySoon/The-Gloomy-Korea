@@ -34,6 +34,8 @@ def display_student_data(year):
     set_index_area.set_index('지역', inplace=True)
     data_year = set_index_area[set_index_area['연도'] == year]
     fig = ff.create_table(data_year, height_constant=60)
+
+
     # Add graph data
     team = data_year.index
     each_area_count = data_year['학생(명)']
@@ -75,17 +77,16 @@ def display_closed_school_data(year):
     all_area = close_school_df[close_school_df['지역'] == '전국']
     sorted_area['전체평균'] = round(all_area['당년(개)'] / area_number).astype(int)
     set_index_area = sorted_area.reset_index()
-    set_index_area.set_index('지역')
-
-    data_2022 = set_index_area[set_index_area['날짜'] == 2022]
+    set_index_area.set_index('지역', inplace=True)
+    data_year = set_index_area[set_index_area['날짜'] == year]
 
 
     # 차트 만들기
-    fig = ff.create_table(data_2022, height_constant=60)
+    fig = ff.create_table(data_year, height_constant=60)
     # Add graph data
-    team = data_2022['지역']
-    each_area_count = data_2022['당년(개)']
-    average_count = data_2022['전체평균']
+    team = data_year.index
+    each_area_count = data_year['당년(개)']
+    average_count = data_year['전체평균']
 
     trace1 = go.Bar(x=team, y=each_area_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#0099ff'),
@@ -112,7 +113,7 @@ def display_closed_school_data(year):
 
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
-    fig.layout.update({'title': '2022 학교 폐교율'})
+    fig.layout.update({'title': f'{year}년도의 학교 폐교율'})
 
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
