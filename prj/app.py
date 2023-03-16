@@ -15,7 +15,7 @@ chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 year = st.sidebar.selectbox(
     '연도를 선택하세요',
     years)
-
+st.sidebar.markdown("---")
 with st.sidebar:
     option = st.radio(
         "보고싶은 차트를 선택하세요",
