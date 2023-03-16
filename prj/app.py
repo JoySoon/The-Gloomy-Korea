@@ -41,10 +41,10 @@ def display_student_data(year):
     each_area_count = data_year['학생(명)']
     average_count = data_year['전체평균']
     trace1 = go.Bar(x=team, y=each_area_count, xaxis='x2', yaxis='y2',
-                    marker=dict(color='#0099FF'),
+                    marker=dict(color='#FF8000'),
                     name='학생(명)')
     trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
-                    marker=dict(color='#404040'),
+                    marker=dict(color='#0099FF'),
                     name='평균 학생 (명)')
     # Add trace data to figure
     fig.add_traces([trace1, trace2])
