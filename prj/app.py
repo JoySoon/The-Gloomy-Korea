@@ -88,10 +88,10 @@ def display_closed_school_data(year):
     average_count = data_year['전체평균']
     trace1 = go.Bar(x=team, y=each_area_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#0099FF'),
-                    name='Each area')
+                    name='지역별')
     trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#404040'),
-                    name='Total Average')
+                    name='평균')
     # Add trace data to figure
     fig.add_traces([trace1, trace2])
     # initialize xaxis2 and yaxis2
