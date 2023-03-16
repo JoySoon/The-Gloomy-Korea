@@ -58,7 +58,7 @@ def display_student_data(year):
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 
-display_student_data()
+display_student_data(year)
   
 
 # # 데이터 커스터마이징징
