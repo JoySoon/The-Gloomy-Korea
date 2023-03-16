@@ -64,5 +64,15 @@ fig.layout.update({'title': '2022 학교 폐교율'})
 # the plot height calculated for the table
 fig.layout.update({'height':800})
 
+
+# # Group data together
+# hist_data = [x1, x2, x3]
+
+# group_labels = ['Group 1', 'Group 2', 'Group 3']
+
+# # Create distplot with custom bin_size
+# fig = ff.create_distplot(
+#         hist_data, group_labels, bin_size=[.1, .25, .5])
+
 # Plot!
-fig.show()
+st.plotly_chart(fig, use_container_width=True)
