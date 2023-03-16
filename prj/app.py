@@ -178,7 +178,7 @@ def statistics_year(year):
                             line = dict(color='firebrick', width=4, dash='dot')))
 
     # Edit the layout
-    fig.update_layout(title=f'                                                          {year}년 월별 출생 및 결혼 건수 통계',
+    fig.update_layout(title=f'                                                                                      {year}년 월별 출생 및 결혼 건수 통계',
                     xaxis_title='월',
                     yaxis_title='건수')
     fig.update_layout(xaxis=dict(tickmode='linear', dtick=1))
