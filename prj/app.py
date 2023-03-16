@@ -16,7 +16,7 @@ year = st.sidebar.selectbox(
 with st.sidebar:
     option = st.radio(
         "보고싶은 차트를 선택하세요",
-        chart,  position='right')
+        chart)
 
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
