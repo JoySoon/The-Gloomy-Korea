@@ -100,7 +100,7 @@ def display_closed_school_data(year):
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 def draw_pie_year(year):
-    close_school_df = pd.read_csv("testing/학교.csv", index_col=0)
+    close_school_df = pd.read_csv("prj/학교.csv", index_col=0)
     sorted_school_df = close_school_df.rename(columns={'당년(개)': '값'})
     sorted_school_df = sorted_school_df[sorted_school_df['지역'] != '전국']
 
