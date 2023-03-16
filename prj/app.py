@@ -62,13 +62,13 @@ def display_student_data(year):
     # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
     fig.layout.yaxis2.update({'anchor': 'x2'})
     fig.layout.xaxis2.update({'anchor': 'y2'})
-    fig.layout.yaxis2.update({'title': 'Goals'})
+    fig.layout.yaxis2.update({'title': '학생수'})
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
     fig.layout.update({'title': f'{year}년도의 지역당 전체 학생 수'})
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
-    fig.layout.update({'height':800})
+    fig.update_layout(width=800, height=800, yaxis=dict(dtick=100000))
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 def display_closed_school_data(year):
