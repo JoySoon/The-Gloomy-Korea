@@ -118,7 +118,7 @@ def draw_pie_year(year):
     pull[1] = 0.1
 
     # pull is given as a fraction of the pie radius
-    fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=pull, textinfo='label+percent',
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=[0.3,0.1,0,0,0,0,0,0,0,0,0,0,0,0], textinfo='label+percent',
                                  insidetextorientation='radial')])
 
     tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
