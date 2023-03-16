@@ -10,8 +10,8 @@ text = "(2011년 - 2022년)"
 year_text = "연도 선택"
 chart_text = "차트 선택"
 
-st.markdown(f"<div style='font-weight:bold; font-size:40px; text-align:center'>{title}</div>", unsafe_allow_html=True)
-st.markdown(" :boom: ")
+st.markdown(f"<div style='font-weight:bold; font-size:40px; text-align:center'>{title} + :boom: +</div>", unsafe_allow_html=True)
+
 st.markdown(f"<div style='text-align:center; font-size:24px'>{text}</div>", unsafe_allow_html=True)
 st.markdown("---")
 years = np.arange(2011,2023)
@@ -22,6 +22,7 @@ st.sidebar.markdown("---")
 year = st.sidebar.selectbox(
     "",
     years)
+st.sidebar.markdown("---")
 st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px;'>{chart_text}</div>", unsafe_allow_html=True)
 st.sidebar.markdown("---")
 with st.sidebar:
