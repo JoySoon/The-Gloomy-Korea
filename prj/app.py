@@ -7,24 +7,16 @@ st.title("통계자료로 보는 한국의 어두운 전망")
 st.title("(2010년 - 2022년)")
 
 
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
+# chart_data = pd.DataFrame(
+#     np.random.randn(20, 3),
+#     columns=['a', 'b', 'c'])
 
-st.line_chart(chart_data)
-
-# CSV 파일 업로드
-uploaded_file = st.file_uploader("mastgm0817/The-Gloomy-Korea/prj/출생,결혼.csv", type="csv")
-
-# 업로드된 파일이 있다면
-if uploaded_file is not None:
-    # pandas를 사용하여 데이터프레임으로 변환
-    df = pd.read_csv(uploaded_file)
-    # 데이터프레임 출력
-    st.write(df)
+# st.line_chart(chart_data)
 
 
-# marriage_df = pd.read_csv("/content/출생,결혼.csv", index_col=0)
+
+marriage_df = pd.read_csv("prj/출생,결혼.csv", index_col=0)
+st.write(marriage_df)
 # students_df = pd.read_csv("/content/학생수.csv", index_col=0)
 # close_school_df = pd.read_csv("/content/학교.csv", index_col=0)
 # # close_school_df
