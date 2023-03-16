@@ -130,7 +130,7 @@ def draw_pie_year(year):
         st.plotly_chart(fig, theme=None)
 
 def statistics_year(year):
-    marriage_df = pd.read_csv("testing/출생,결혼.csv", index_col=0)
+    marriage_df = pd.read_csv("prj/출생,결혼.csv", index_col=0)
     marriage_df.rename_axis("연도", axis='index', inplace=True)
     marriage_df = marriage_df.reset_index()
     df_month = marriage_df.copy()
