@@ -22,7 +22,6 @@ st.sidebar.markdown("---")
 year = st.sidebar.selectbox(
     "",
     years)
-st.sidebar.markdown("---")
 st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px;'>{chart_text}</div>", unsafe_allow_html=True)
 st.sidebar.markdown("---")
 with st.sidebar:
@@ -40,7 +39,7 @@ def display_student_data(year):
     set_index_area = sorted_area.reset_index()
     set_index_area.set_index('지역', inplace=True)
     data_year = set_index_area[set_index_area['연도'] == year]
-    fig = ff.create_table(data_year, height_constant=60)
+    fig = ff.create_table(sorted_area, height_constant=60)
     # Add graph data
     team = data_year.index
     each_area_count = data_year['학생(명)']
