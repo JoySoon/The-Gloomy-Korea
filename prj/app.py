@@ -21,10 +21,6 @@ option = st.selectbox(
 
 st.write('You selected:', option)
 
-if option == "학생":
-    display_student_data(year)
-else:
-    display_closed_school_data(year)
 
 
 def display_student_data(year):
@@ -123,3 +119,8 @@ def display_closed_school_data(year):
     fig.layout.update({'height':800})
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
+
+if option == "학생":
+    display_student_data(year)
+else:
+    display_closed_school_data(year)
