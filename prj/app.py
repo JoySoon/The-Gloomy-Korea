@@ -137,7 +137,7 @@ def draw_pie_year(year):
                                  insidetextorientation='radial')])
     fig.update_layout(width=800, height=600)
 
-    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
+    tab1, tab2 = st.tabs(["일반 색상", "다른 색상"])
     with tab1:
         st.plotly_chart(fig, theme="streamlit")
     with tab2:
