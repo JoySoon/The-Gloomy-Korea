@@ -121,3 +121,5 @@ def display_closed_school_data(year):
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'height':800})
+    # Plot!
+    st.plotly_chart(fig, use_container_width=True)
