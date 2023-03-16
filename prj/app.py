@@ -5,8 +5,8 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
 text = "(2011년 - 2022년)"
-year_text = "연도를 선택하세요"
-chart_text = "연도를 선택하세요"
+year_text = "연도 선택"
+chart_text = "차트 선택"
 
 st.title("한국의 미래")
 st.markdown(f"<div style='text-align:center'>{text}</div>", unsafe_allow_html=True)
@@ -16,12 +16,12 @@ chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("---")
-st.markdown(f"<div style='text-align:center'>{year_text}</div>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<div style='text-align:center'>{year_text}</div>", unsafe_allow_html=True)
 year = st.sidebar.selectbox(
     "",
     years)
 st.sidebar.markdown("---")
-st.markdown(f"<div style='text-align:center'>{chart_text}</div>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<div style='text-align:center'>{chart_text}</div>", unsafe_allow_html=True)
 with st.sidebar:
     option = st.radio(
         "",
