@@ -182,6 +182,7 @@ def statistics_year(year):
                     xaxis_title='월',
                     yaxis_title='건수')
     fig.update_layout(xaxis=dict(tickmode='linear', dtick=1))
+    fig.update_layout(yaxis=dict(tickmode='linear', dtick=2000))
     fig.update_layout(width=800, height=600)
     st.plotly_chart(fig)
 
