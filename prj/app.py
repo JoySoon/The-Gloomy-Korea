@@ -11,7 +11,7 @@ years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 year = st.sidebar.selectbox(
     '연도를 선택하세요',
-    years)
+    years, position='right')
 
 with st.sidebar:
     option = st.radio(
