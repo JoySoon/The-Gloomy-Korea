@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 
 st.title("통계자료로 보는 한국의 어두운 전망")
@@ -50,35 +50,50 @@ merged_df = merged_df.rename(columns={'값_x': '결혼(수)', '값_y': '출생(�
 st.line_chart(merged_df)
 
 
-df_by_year = lambda year: reset_df.loc[reset_df['연도'] == year].copy()
-month_and_year = lambda year: (df_by_year(year)['월'], df_by_year(year)['값'])
 
-plt.figure(figsize=(10, 12))
-draw_plot = lambda year: plt.plot(*month_and_year(year), '*:', label=f'{year}년')
+# 데이터 생성
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
 
-n_sub_plot = [221,222,223,224]
+# 그래프 생성
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=x, y=y, mode='lines+markers'))
 
-def make_subplot(i,n):
-  c_year = 2010+n
-  plt.subplot(n_sub_plot[i//3])
-  a_year = [v for v in reset_df['연도'].unique()]
-  a_year.sort()
-  if n == 9:
-    y_data = [v for v in a_year[n:n+4]]
-    plt.title(f'{c_year}년 부터 {c_year+3}년 까지 ')
-  else: 
-    y_data = [v for v in a_year[n:n+3]]
-    plt.title(f'{c_year}년 부터 {c_year+2}년 까지')
-  y_data.sort()
-  for index in y_data:
-    draw_plot(index)
-  plt.xlabel('월')
-  plt.ylabel('결혼 건수')
-  plt.grid(True)
-  plt.legend(loc=0)
+# 레이아웃 설정
+fig.update_layout(title='My Line Chart', xaxis_title='X-axis', yaxis_title='Y-axis')
 
-for i in range(0,10,3):
-  make_subplot(i,i)
+# 그래프 출력
+st.plotly_chart(fig)
 
-plt.tight_layout() # 안 겹치게 레이아웃 조정
-plt.show()
+# df_by_year = lambda year: reset_df.loc[reset_df['연도'] == year].copy()
+# month_and_year = lambda year: (df_by_year(year)['월'], df_by_year(year)['값'])
+
+# plt.figure(figsize=(10, 12))
+# draw_plot = lambda year: plt.plot(*month_and_year(year), '*:', label=f'{year}년')
+
+# n_sub_plot = [221,222,223,224]
+
+# def make_subplot(i,n):
+#   c_year = 2010+n
+#   plt.subplot(n_sub_plot[i//3])
+#   a_year = [v for v in reset_df['연도'].unique()]
+#   a_year.sort()
+#   if n == 9:
+#     y_data = [v for v in a_year[n:n+4]]
+#     plt.title(f'{c_year}년 부터 {c_year+3}년 까지 ')
+#   else: 
+#     y_data = [v for v in a_year[n:n+3]]
+#     plt.title(f'{c_year}년 부터 {c_year+2}년 까지')
+#   y_data.sort()
+#   for index in y_data:
+#     draw_plot(index)
+#   plt.xlabel('월')
+#   plt.ylabel('결혼 건수')
+#   plt.grid(True)
+#   plt.legend(loc=0)
+
+# for i in range(0,10,3):
+#   make_subplot(i,i)
+
+# plt.tight_layout() # 안 겹치게 레이아웃 조정
+# plt.show()
