@@ -43,7 +43,7 @@ trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
 # Add trace data to figure
 fig.add_traces([trace1, trace2])
 
-initialize xaxis2 and yaxis2
+# initialize xaxis2 and yaxis2
 fig['layout']['xaxis2'] = {}
 fig['layout']['yaxis2'] = {}
 
