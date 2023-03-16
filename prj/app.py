@@ -6,7 +6,7 @@ import plotly.figure_factory as ff
 
 st.title("통계자료로 보는 한국의 어두운 전망")
 st.title("     (2011년 - 2022년)")
-
+st.sidebar.title("되나?")
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 year = st.sidebar.selectbox(
