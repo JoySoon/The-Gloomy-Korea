@@ -35,7 +35,7 @@ average_count = data_2022['전체평균']
 
 trace1 = go.Bar(x=team, y=each_area_count, xaxis='x2', yaxis='y2',
                 marker=dict(color='#0099ff'),
-                name='Each close')
+                name='Each area')
 trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
                 marker=dict(color='#404040'),
                 name='Total Average')
@@ -54,7 +54,7 @@ fig.layout.yaxis2.update({'domain': [.6, 1]})
 # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
 fig.layout.yaxis2.update({'anchor': 'x2'})
 fig.layout.xaxis2.update({'anchor': 'y2'})
-fig.layout.yaxis2.update({'title': 'Goals'})
+fig.layout.yaxis2.update({'title': '폐교 학교 수'})
 
 # Update the margins to add a title and see graph x-labels.
 fig.layout.margin.update({'t':75, 'l':50})
@@ -65,14 +65,4 @@ fig.layout.update({'title': '2022 학교 폐교율'})
 fig.layout.update({'height':800})
 
 
-# # Group data together
-# hist_data = [x1, x2, x3]
-
-# group_labels = ['Group 1', 'Group 2', 'Group 3']
-
-# # Create distplot with custom bin_size
-# fig = ff.create_distplot(
-#         hist_data, group_labels, bin_size=[.1, .25, .5])
-
-# Plot!
 st.plotly_chart(fig, use_container_width=True)
