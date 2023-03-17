@@ -19,7 +19,7 @@ st.markdown("---")
 st.title("통계자료로 보는 한국의 어두운 전망")
 st.title("(2011년 - 2022년)")
 
->>>>>>> main
+
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
 
@@ -40,7 +40,7 @@ option = st.selectbox(
     '차트를 선택하세요',
     chart)
 st.write('You selected:', option)
->>>>>>> main
+
 
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
@@ -98,7 +98,7 @@ def display_student_data(year):
     # the plot height calculated for the table
     fig.layout.update({'height':800})
 
->>>>>>> main
+
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
 
@@ -130,7 +130,7 @@ def display_closed_school_data(year):
 
                     name='Total Average')
 
->>>>>>> main
+
     # Add trace data to figure
     fig.add_traces([trace1, trace2])
 
@@ -155,14 +155,14 @@ def display_closed_school_data(year):
     # the plot height calculated for the table
     fig.update_layout(width=800, height=600)
     fig.update_layout(yaxis=dict(tickmode='linear', dtick=2))
-=======
+
     fig.layout.update({'title': f'{year}년도의 학교 폐교율'})
 
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'height':800})
 
->>>>>>> main
+
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
     
