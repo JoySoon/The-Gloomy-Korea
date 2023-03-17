@@ -15,7 +15,7 @@ st.markdown(f"<div style='font-weight:bold; font-size:40px; text-align:center'>{
 
 st.markdown(f"<div style='text-align:center; font-size:24px'>{text}</div>", unsafe_allow_html=True)
 st.markdown("---")
-=======
+
 st.title("통계자료로 보는 한국의 어두운 전망")
 st.title("(2011년 - 2022년)")
 
@@ -35,7 +35,7 @@ with st.sidebar:
     option = st.radio(
         "",
         chart)
-=======
+
 option = st.selectbox(
     '차트를 선택하세요',
     chart)
@@ -87,7 +87,7 @@ def display_student_data(year):
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'width':800, 'height':800, 'yaxis':dict(dtick=100000)})
-=======
+
     fig.layout.yaxis2.update({'title': 'Goals'})
 
     # Update the margins to add a title and see graph x-labels.
@@ -127,7 +127,7 @@ def display_closed_school_data(year):
                     marker=dict(color='#404040'),
 
                     name='평균')
-=======
+
                     name='Total Average')
 
 >>>>>>> main
