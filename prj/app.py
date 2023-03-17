@@ -4,6 +4,7 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
+
 # 텍스트 모음
 title = "한국의 미래"
 text = "(2011년 - 2022년)"
@@ -14,8 +15,10 @@ st.markdown(f"<div style='font-weight:bold; font-size:40px; text-align:center'>{
 
 st.markdown(f"<div style='text-align:center; font-size:24px'>{text}</div>", unsafe_allow_html=True)
 st.markdown("---")
+
 years = np.arange(2011,2023)
 chart = ['학생','폐교','출생 및 결혼','폐교(파이)']
+
 
 st.sidebar.markdown(f"<div style='text-align:center; font-weight:bold; font-size:18px'>{year_text}</div>", unsafe_allow_html=True)
 st.sidebar.markdown("---")
@@ -29,6 +32,7 @@ with st.sidebar:
         "",
         chart)
 
+
 def display_student_data(year):
     students_df = pd.read_csv("prj/학생수.csv", index_col=0)
     area_number = len(students_df['지역'].unique()[1:])
@@ -40,6 +44,7 @@ def display_student_data(year):
     set_index_area.set_index('지역', inplace=True)
     data_year = set_index_area[set_index_area['연도'] == year]
     fig = ff.create_table(data_year, height_constant=60)
+
     # Add graph data
     team = data_year.index
     each_area_count = data_year['학생(명)']
@@ -50,17 +55,22 @@ def display_student_data(year):
     trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#0099FF'),
                     name='평균 학생 (명)')
+
     # Add trace data to figure
     fig.add_traces([trace1, trace2])
+
     # initialize xaxis2 and yaxis2
     fig['layout']['xaxis2'] = {}
     fig['layout']['yaxis2'] = {}
+
     # Edit layout for subplots
     fig.layout.yaxis.update({'domain': [0, .45]})
     fig.layout.yaxis2.update({'domain': [.6, 1]})
+
     # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
     fig.layout.yaxis2.update({'anchor': 'x2'})
     fig.layout.xaxis2.update({'anchor': 'y2'})
+
     fig.layout.yaxis2.update({'title': '학생수'})
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
@@ -68,8 +78,10 @@ def display_student_data(year):
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.layout.update({'width':800, 'height':800, 'yaxis':dict(dtick=100000)})
+
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
+
 def display_closed_school_data(year):
     close_school_df = pd.read_csv("prj/학교.csv", index_col=0)
     area_number = len(close_school_df['지역'].unique()[1:])
@@ -80,8 +92,10 @@ def display_closed_school_data(year):
     set_index_area = sorted_area.reset_index()
     set_index_area.set_index('지역', inplace=True)
     data_year = set_index_area[set_index_area['날짜'] == year]
+
     # 차트 만들기
     fig = ff.create_table(data_year, height_constant=60)
+
     # Add graph data
     team = data_year.index
     each_area_count = data_year['당년(개)']
@@ -91,28 +105,37 @@ def display_closed_school_data(year):
                     name='지역별')
     trace2 = go.Bar(x=team, y=average_count, xaxis='x2', yaxis='y2',
                     marker=dict(color='#404040'),
+
                     name='평균')
+
     # Add trace data to figure
     fig.add_traces([trace1, trace2])
+
     # initialize xaxis2 and yaxis2
     fig['layout']['xaxis2'] = {}
     fig['layout']['yaxis2'] = {}
+
     # Edit layout for subplots
     fig.layout.yaxis.update({'domain': [0, .45]})
     fig.layout.yaxis2.update({'domain': [.6, 1]})
+
     # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
     fig.layout.yaxis2.update({'anchor': 'x2'})
     fig.layout.xaxis2.update({'anchor': 'y2'})
     fig.layout.yaxis2.update({'title': '폐교 학교 수'})
+
     # Update the margins to add a title and see graph x-labels.
     fig.layout.margin.update({'t':75, 'l':50})
+
     fig.layout.update({'title': f'                                                                                  {year}년 학교 폐교율'})
     # Update the height because adding a graph vertically will interact with
     # the plot height calculated for the table
     fig.update_layout(width=800, height=600)
     fig.update_layout(yaxis=dict(tickmode='linear', dtick=2))
+
     # Plot!
     st.plotly_chart(fig, use_container_width=True)
+    
 def draw_pie_year(year):
     close_school_df = pd.read_csv("prj/학교.csv", index_col=0)
     sorted_school_df = close_school_df.rename(columns={'당년(개)': '값'})
